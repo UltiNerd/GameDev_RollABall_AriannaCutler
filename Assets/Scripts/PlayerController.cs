@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     private int count;
     private float movementX;
     private float movementY;
+    public GameObject LoseTextObject;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -61,8 +62,8 @@ public class PlayerController : MonoBehaviour
             // Destroy the current object
             Destroy(gameObject);
             // Update the winText to display "You Lose!"
-            winTextObject.gameObject.SetActive(true);
-            winTextObject.GetComponent<TextMeshProUGUI>().text = "You Lose!";
+            LoseTextObject.gameObject.SetActive(true);
+           
         }
     }
 }

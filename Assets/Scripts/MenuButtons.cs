@@ -5,11 +5,17 @@ using UnityEngine.SceneManagement;
 
 public class MenuButtons : MonoBehaviour
 {
-  //Load Scene
-  public void Play()
+    //Load Scene
+    public void Play()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+    public void MenuButton()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
+
 
     //Quit Game
     public void Quit()
