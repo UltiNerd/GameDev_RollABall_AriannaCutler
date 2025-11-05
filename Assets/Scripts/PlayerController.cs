@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour
     private float movementY;
     public GameObject LoseTextObject;
     public bool Jumped;
+    private Camera mainCamera;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -23,12 +24,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         SetCountText();
         winTextObject.SetActive(false);
+        mainCamera = Camera.main;
     }
 
 
-    void OnMove(InputValue movementValue)
+    public void Move(InputAction.CallbackContext movementValue)
     {
-        Vector2 movementVector = movementValue.Get<Vector2>();
+        Vector2 movementVector = movementValue.ReadValue<Vector2>();
         movementX = movementVector.x;
         movementY = movementVector.y;
     }
@@ -40,11 +42,14 @@ public class PlayerController : MonoBehaviour
         {
             winTextObject.SetActive(true);
             Destroy(GameObject.FindGameObjectWithTag("Enemy"));
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+
         }
     }
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(movementX, 0.0f, movementY);
+        Vector3 movement = Quaternion.Euler(0.0f, mainCamera.transform.eulerAngles.y, 0.0f) * new Vector3(movementX, 0.0f, movementY);
         rb.AddForce(movement * speed);
 
     }
@@ -81,6 +86,8 @@ public class PlayerController : MonoBehaviour
             Destroy(gameObject);
             // Update the winText to display "You Lose!"
             LoseTextObject.gameObject.SetActive(true);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
 
 
         }

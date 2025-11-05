@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
 
     }
 
-    public void OnLook(InputAction.CallbackContext context) 
+    public void Look(InputAction.CallbackContext context) 
     {
         _input = context.ReadValue<Vector2>();
 
