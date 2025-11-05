@@ -4414,7 +4414,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c22dad9eceba2449e316a0c20f824d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1415070856}
+  target: {fileID: 1415070863}
+  smoothtime: 0
 --- !u!4 &993221411 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7961669531177030867, guid: 92db3de7b7ac2464995ae4c277b8f534, type: 3}
@@ -5644,6 +5645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
+  jumpstrength: 300
   countText: {fileID: 1145403253}
   winTextObject: {fileID: 108734104}
   LoseTextObject: {fileID: 227954566}
