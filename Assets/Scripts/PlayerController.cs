@@ -3,7 +3,7 @@ using UnityEngine.InputSystem;
 using TMPro;
 using Unity.VisualScripting;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : MonoBehaviour, InputSystem_Actions.IPlayerActions
 {
     public float speed = 0;
     public float jumpstrength = 0;
@@ -53,7 +53,7 @@ public class PlayerController : MonoBehaviour
         rb.AddForce(movement * speed);
 
     }
-    private void Update()
+    void Update()
     {
         if (Jumped == false)
         {
@@ -106,6 +106,26 @@ public class PlayerController : MonoBehaviour
         {
             Jumped = true;
         }
+    }
+
+    public void OnMove(InputAction.CallbackContext context)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnLook(InputAction.CallbackContext context)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        throw new System.NotImplementedException();
+    }
+
+    public void OnJump(InputAction.CallbackContext context)
+    {
+        Debug.Log("jump");
     }
 }
 
