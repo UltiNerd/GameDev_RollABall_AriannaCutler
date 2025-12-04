@@ -1,16 +1,26 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class TutorialScreen : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+   
+        
+        public GameObject startMenuUI; 
+
     void Start()
     {
-        
+        Time.timeScale = 0f;
+        startMenuUI.SetActive(true); 
     }
 
-    // Update is called once per frame
-    void Update()
+    public void StartGame()
     {
-        
+       
+        Time.timeScale = 1f; 
+        startMenuUI.SetActive(false); 
     }
+
+    
+
 }
+
